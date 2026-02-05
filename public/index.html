@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Registro de Clientes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-users"></i> Sistema de Registro de Clientes</h1>
+            <p class="subtitle">Control de clientes y registro de incumplimientos</p>
+        </header>
+
+        <div class="app-container">
+            <div class="tabs">
+                <button class="tab-button active" data-tab="registro">Registrar Cliente</button>
+                <button class="tab-button" data-tab="quitar-vida">Quitar Vida</button>
+                <button class="tab-button" data-tab="buscar">Buscar Cliente</button>
+                <button class="tab-button" data-tab="lista">Lista de Clientes</button>
+            </div>
+
+            <div class="tab-content">
+                <!-- Panel de Registro -->
+                <div id="registro" class="panel active">
+                    <h2><i class="fas fa-user-plus"></i> Registrar Nuevo Cliente</h2>
+                    <form id="formRegistro">
+                        <div class="form-group">
+                            <label for="nombre"><i class="fas fa-user"></i> Nombre Completo:</label>
+                            <input type="text" id="nombre" required placeholder="Ej: Juan Pérez">
+                        </div>
+                        <div class="form-group">
+                            <label for="celular"><i class="fas fa-mobile-alt"></i> Número de Celular:</label>
+                            <input type="text" id="celular" required placeholder="Ej: 61134551">
+                        </div>
+                        <div class="form-group">
+                            <label for="habitacion"><i class="fas fa-door-closed"></i> Habitación de Atención:</label>
+                            <select id="habitacion" required>
+                                <option value="">Seleccione una habitación</option>
+                                <option value="1">Habitación 1</option>
+                                <option value="2">Habitación 2</option>
+                                <option value="3">Habitación 3</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Registrar Cliente
+                        </button>
+                    </form>
+                    <div id="resultadoRegistro" class="resultado"></div>
+                </div>
+
+                <!-- Panel para Quitar Vida -->
+                <div id="quitar-vida" class="panel">
+                    <h2><i class="fas fa-heart-broken"></i> Quitar Vida por Incumplimiento</h2>
+                    <form id="formQuitarVida">
+                        <div class="form-group">
+                            <label for="celularQuitar"><i class="fas fa-mobile-alt"></i> Celular del Cliente:</label>
+                            <input type="text" id="celularQuitar" required placeholder="Ingrese el celular registrado">
+                        </div>
+                        <button type="submit" class="btn btn-warning">
+                            <i class="fas fa-minus-circle"></i> Quitar 1 Vida
+                        </button>
+                    </form>
+                    <div id="resultadoQuitarVida" class="resultado"></div>
+                </div>
+
+                <!-- Panel de Búsqueda -->
+                <div id="buscar" class="panel">
+                    <h2><i class="fas fa-search"></i> Buscar Cliente</h2>
+                    <form id="formBuscar">
+                        <div class="form-group">
+                            <label for="celularBuscar"><i class="fas fa-mobile-alt"></i> Celular del Cliente:</label>
+                            <input type="text" id="celularBuscar" required placeholder="Ingrese el celular a buscar">
+                        </div>
+                        <button type="submit" class="btn btn-info">
+                            <i class="fas fa-search"></i> Buscar Cliente
+                        </button>
+                    </form>
+                    <div id="resultadoBusqueda" class="resultado"></div>
+                    <div id="historialCliente" class="historial"></div>
+                </div>
+
+                <!-- Panel de Lista de Clientes -->
+                <div id="lista" class="panel">
+                    <h2><i class="fas fa-list"></i> Lista de Clientes Registrados</h2>
+                    <button id="btnCargarClientes" class="btn btn-secondary">
+                        <i class="fas fa-sync-alt"></i> Cargar Clientes
+                    </button>
+                    <div id="listaClientes" class="tabla-container"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Sistema de Gestión de Clientes &copy; 2024</p>
+            <p>Estado del sistema: <span id="status" class="status-online">● Conectado</span></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "sistema-clientes",
+  "version": "1.0.0",
+  "description": "Sistema de registro y calificación de clientes",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "vercel-build": "echo 'Building for Vercel...'"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "pg": "^8.10.0",
+    "express-validator": "^6.15.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
